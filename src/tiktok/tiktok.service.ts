@@ -4,6 +4,8 @@ import { ApiService } from "src/api/api.service";
 @Injectable()
 export class TiktokService {
 
+    private TIKTOK_VIEW_REACH = 5_000_000;
+
     private static readonly categories = [
         {
             name: 'Dance & Music',
@@ -79,7 +81,7 @@ export class TiktokService {
 
         return {
             category_name: category.name,
-            videos: videos.filter((e: any) => e.play_count > 1_000_000) 
+            videos: videos.filter((e: any) => e.play_count > this.TIKTOK_VIEW_REACH) 
         };
     }
 }
