@@ -1,0 +1,19 @@
+services:
+  sharebox-dev:
+    image: sharebox-backend
+    build: .
+    ports:
+      - "3001:3000"
+    volumes:
+      - .:/usr/src/app
+    environment:
+      PRODUCTION: "0"
+  sharebox-prod:
+    image: sharebox-backend
+    build: .
+    ports:
+      - "3002:3000"
+    volumes:
+      - .:/usr/src/app
+    environment:
+      PRODUCTION: "1"
