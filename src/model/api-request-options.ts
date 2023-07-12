@@ -1,5 +1,5 @@
 
 export interface ApiRequestOptions {
-    params: any,
-    headers: any
+    params?: any,
+    headers?: any
 }

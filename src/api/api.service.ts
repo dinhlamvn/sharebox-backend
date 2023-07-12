@@ -11,7 +11,6 @@ export class ApiService {
     }
 
     async get(url: string, requestOptions?: ApiRequestOptions) {
-        console.log(requestOptions);
         return await axios.get(url, {
             params: requestOptions?.params,
             headers: requestOptions?.headers,
