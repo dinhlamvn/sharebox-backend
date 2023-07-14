@@ -1,5 +1,6 @@
 import { Injectable, Logger } from "@nestjs/common";
 import { Cron, CronExpression } from "@nestjs/schedule";
+import { Common } from "src/common/common";
 import { FirebaseService } from "src/firebase/firebase.service";
 import { TiktokService } from "src/tiktok/tiktok.service";
 import { v4 as uuidv4 } from "uuid";
@@ -14,7 +15,7 @@ export class TasksService {
         private readonly tiktokService: TiktokService
     ) {}
 
-    @Cron(CronExpression.EVERY_30_MINUTES)
+    @Cron(Common.isProduction() ? CronExpression.EVERY_10_MINUTES : CronExpression.EVERY_30_MINUTES)
     async handleCron() {
         this.logger.debug('Cron collect top videos start...');
         
